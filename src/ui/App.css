@@ -1,0 +1,261 @@
+:root {
+  --bg: #0f1420;
+  --panel: #181f2e;
+  --panel-2: #1f2839;
+  --border: #2b364c;
+  --text: #e6ebf5;
+  --muted: #93a0b8;
+  --accent: #4f8cff;
+  --danger: #ff6b6b;
+  --ok: #4ecb8d;
+  --warn: #ffb454;
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+header h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+
+.count-badge {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 1px 10px;
+  vertical-align: middle;
+}
+
+.json-input {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.json-input:focus,
+.trial-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.stat {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.error {
+  margin-top: 10px;
+  padding: 9px 12px;
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid var(--danger);
+  color: #ffb0b0;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+/* 虚拟表格 */
+.vtable {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: auto;
+  position: relative;
+  background: var(--panel-2);
+}
+
+.vtable-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  background: #232e44;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.vtable-header > div {
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+.vtable-spacer {
+  position: relative;
+  width: 100%;
+}
+
+.vtable-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 30px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(43, 54, 76, 0.5);
+}
+
+.vtable-row:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.vtable-row > div {
+  padding: 6px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vtable-empty {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 16px;
+}
+
+/* 试接表单 */
+.trial-form {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.trial-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.trial-form input {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 8px 10px;
+  font-size: 14px;
+  width: 220px;
+}
+
+.trial-result {
+  margin-top: 14px;
+}
+
+.trial-result h3 {
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+
+.trial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.trial-grid h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.trial-grid h4.remain {
+  color: var(--warn);
+}
+
+.trial-grid h4.eliminated {
+  color: var(--ok);
+}
+
+footer {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media (max-width: 760px) {
+  .trial-grid {
+    grid-template-columns: 1fr;
+  }
+}
